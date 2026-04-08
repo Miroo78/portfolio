@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amir Bmz | L'architecte du digital</title>
+    <!-- FONTS & ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ========== RESET & VARIABLES ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --deep-space: #0a0c12;
+            --carbon: #14181f;
+            --steel: #1e2632;
+            --electric: #2b7fff;
+            --electric-glow: #3b82f6;
+            --platinum: #e2e8f0;
+            --silver: #9aa8b9;
+            --cyber-cyan: #0ff;
+            --gradient-cosmic: linear-gradient(145deg, #0a0c12 0%, #1a2535 100%);
+            --gradient-card: linear-gradient(145deg, rgba(30, 38, 50, 0.7) 0%, rgba(20, 24, 31, 0.9) 100%);
+            --border-neon: rgba(43, 127, 255, 0.25);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--deep-space);
+            color: var(--platinum);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ========== TYPOGRAPHIE ========== */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 3.5rem;
+            font-weight: 800;
+            position: relative;
+        }
+
+        .section-title span {
+            background: linear-gradient(135deg, #fff, var(--electric));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--electric), transparent);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* ========== HEADER ========== */
+        header {
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(10, 12, 18, 0.85);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(43, 127, 255, 0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: var(--electric);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--platinum);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--electric);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+
+        /* ========== HERO ========== */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 60px;
+            position: relative;
+            background: radial-gradient(circle at 80% 30%, rgba(43, 127, 255, 0.15) 0%, transparent 50%),
+                        url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1934&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 12, 18, 0.7);
+            backdrop-filter: blur(3px);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(43, 127, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(43, 127, 255, 0.4);
+            padding: 8px 25px;
+            border-radius: 40px;
+            color: var(--electric);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #ffffff, var(--electric));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subhead {
+            font-size: 1.8rem;
+            color: var(--silver);
+            margin-bottom: 1rem;
+        }
+
+        .hero-quote {
+            font-size: 1.5rem;
+            margin: 2rem 0;
+            font-weight: 300;
+            font-style: italic;
+            border-left: 3px solid var(--electric);
+            padding-left: 2rem;
+            display: inline-block;
+        }
+
+        .hero-quote span {
+            color: var(--electric);
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+            margin: 2.5rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--electric);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--silver);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ========== BOUTONS ========== */
+        .btn-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 40px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--electric);
+            color: white;
+            box-shadow: 0 10px 25px -5px rgba(43, 127, 255, 0.5);
+        }
+
+        .btn-primary:hover {
+            background: #1a5bbf;
+            transform: translateY(-3px);
+            box-shadow: 0 20px 30px -5px rgba(43, 127, 255, 0.7);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--electric);
+            color: var(--electric);
+        }
+
+        .btn-secondary:hover {
+            background: var(--electric);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .cv-button {
+            background: transparent;
+            border: 2px solid var(--electric);
+            color: var(--electric);
+            padding: 10px 25px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cv-button:hover {
+            background: var(--electric);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* ========== SECTIONS ========== */
+        section {
+            padding: 100px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.02);
+        }
+
+        #about {
+            background: var(--gradient-cosmic);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--silver);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .philosophy {
+            font-size: 1.2rem;
+            border-left: 4px solid var(--electric);
+            padding-left: 1.8rem;
+            margin: 2rem 0;
+            font-weight: 500;
+            color: white;
+        }
+
+        .about-image {
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 40px -20px black;
+            border: 1px solid rgba(43,127,255,0.3);
+            transition: 0.4s;
+        }
+
+        .about-image:hover {
+            transform: scale(1.02);
+            border-color: var(--electric);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ========== STACK POLYVALENT ========== */
+        #stack {
+            background: var(--steel);
+        }
+
+        .stack-subtitle {
+            text-align: center;
+            color: var(--silver);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        .polyvalent-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.8rem;
+        }
+
+        .stack-domain {
+            background: var(--gradient-card);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-neon);
+            border-radius: 30px;
+            padding: 2rem 1.5rem;
+            transition: 0.3s;
+        }
+
+        .stack-domain:hover {
+            transform: translateY(-10px);
+            border-color: var(--electric);
+            box-shadow: 0 20px 30px -10px rgba(43,127,255,0.4);
+        }
+
+        .domain-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1.8rem;
+            border-bottom: 1px dashed var(--border-neon);
+            padding-bottom: 1rem;
+        }
+
+        .domain-header i {
+            font-size: 2.2rem;
+            color: var(--electric);
+        }
+
+        .domain-header h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .tech-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .tech-item {
+            background: rgba(0,0,0,0.3);
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid rgba(43,127,255,0.2);
+            color: var(--silver);
+        }
+
+        .tech-item strong {
+            color: var(--electric);
+            font-weight: 700;
+        }
+
+        .cyber-tag {
+            border-color: #0ff;
+            box-shadow: 0 0 8px rgba(0,255,255,0.3);
+        }
+
+        /* ========== VISION ========== */
+        #vision {
+            background: var(--deep-space);
+        }
+
+        .vision-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .vision-badge {
+            display: inline-block;
+            background: rgba(43,127,255,0.1);
+            border: 1px solid var(--electric);
+            padding: 8px 25px;
+            border-radius: 40px;
+            color: var(--electric);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .vision-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .vision-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .vision-card {
+            background: rgba(30,38,50,0.5);
+            border: 1px solid var(--border-neon);
+            padding: 1.8rem;
+            border-radius: 25px;
+            backdrop-filter: blur(5px);
+        }
+
+        .vision-card i {
+            font-size: 2rem;
+            color: var(--electric);
+            margin-bottom: 1rem;
+        }
+
+        .vision-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .vision-card p {
+            color: var(--silver);
+            font-size: 0.95rem;
+        }
+
+        .vision-cta {
+            background: var(--gradient-card);
+            padding: 2.5rem;
+            border-radius: 30px;
+            border: 1px solid var(--border-neon);
+            text-align: center;
+        }
+
+        .vision-cta h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .availability {
+            background: rgba(0,0,0,0.3);
+            padding: 1.2rem;
+            border-radius: 50px;
+            margin: 1.5rem 0;
+            font-weight: 600;
+        }
+
+        /* ========== PROJETS ========== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.2rem;
+        }
+
+        .project-card {
+            background: var(--gradient-card);
+            border: 1px solid var(--border-neon);
+            border-radius: 30px;
+            overflow: hidden;
+            transition: 0.4s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--electric);
+            box-shadow: 0 30px 40px -15px black;
+        }
+
+        .project-image {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            padding: 2rem;
+        }
+
+        .project-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-info p {
+            color: var(--silver);
+            margin-bottom: 1.2rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tag {
+            background: rgba(0,0,0,0.3);
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(43,127,255,0.3);
+        }
+
+        .project-link {
+            color: var(--electric);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+
+        .project-link:hover {
+            gap: 15px;
+        }
+
+        /* ========== CONTACT ========== */
+        #contact {
+            background: var(--steel);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .contact-info { /* mettre au milieu du site  */
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            justify-content: center;
+
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            background: rgba(0,0,0,0.2);
+            padding: 1.2rem;
+            border-radius: 25px;
+            border: 1px solid var(--border-neon);
+            transition: 0.3s;
+        }
+
+        .contact-card:hover {
+            border-color: var(--electric);
+        }
+
+        .contact-card i {
+            font-size: 1.8rem;
+            color: var(--electric);
+            width: 40px;
+        }
+
+     
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(43,127,255,0.3);
+            border-radius: 20px;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--electric);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--electric);
+            border: none;
+            border-radius: 40px;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #1a5bbf;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px var(--electric);
+        }
+
+        /* ========== FOOTER ULTIME ========== */
+        footer {
+            background: #0a0c12;
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(43,127,255,0.2);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo span {
+            color: var(--electric);
+        }
+
+        .footer-col p {
+            color: var(--silver);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--silver);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--electric);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(43,127,255,0.3);
+            border-radius: 50%;
+            color: var(--electric);
+            font-size: 1.3rem;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--electric);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--silver);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .polyvalent-grid { grid-template-columns: repeat(2,1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .about-content { grid-template-columns: 1fr; }
+            .vision-container { grid-template-columns: 1fr; }
+            .contact-container { grid-template-columns: 1fr; }
+            .polyvalent-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 3rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Amir <span>Bmz</span></div>
+                <ul class="nav-links">
+                    <li><a href="#hero">Accueil</a></li>
+                    <li><a href="#about">Profil</a></li>
+                    <li><a href="#stack">Expertises</a></li>
+                    <li><a href="#vision">Vision</a></li>
+                    <li><a href="#projects">Réalisations</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="../portfolioII/Files/CV-Sup-de-Vinci--AMIR-BOUMAZOUZI-final.pdf" class="cv-button" download="Amir_Boumazouzi_CV.pdf"><i class="fas fa-download"></i> CV</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge"><i class="fas fa--alt"></i> #EnRechercheStage</div>
+                <h1>Amir Boumazouzi</h1>
+                <div class="hero-subhead">Développeur Full-Stack & Entrepreneur</div>
+                <div class="hero-quote">"Là où les autres réfléchissent, <span>j'agis</span>."</div>
+                <div class="hero-stats">
+                    <div class="stat-item"><span class="stat-number">5+</span> <span class="stat-label">Projets live</span></div>
+                    <div class="stat-item"><span class="stat-number">2</span> <span class="stat-label">Infrastructures</span></div>
+                    <div class="stat-item"><span class="stat-number">∞</span> <span class="stat-label">Polyvalence</span></div>
+                </div>
+                <div class="btn-group">
+                    <a href="#projects" class="btn-primary"><i class="fas fa-code"></i> Voir le travail</a>
+                    <a href="#contact" class="btn-secondary"><i class="fas fa-paper-plane"></i> Discutons</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Le <span>Profil</span></h2>
+            <div class="about-content">
+                <div class="about-text">
+                   <h3>Compétences techniques au service de vos projets</h3>
+                <p>Actuellement en 2e année de cycle préparatoire à Sup de Vinci, j'ai développé une solide expertise en <strong>développement full-stack</strong>,
+                <strong>administration de bases de données</strong> et <strong>sécurité des systèmes</strong></p>
+               <p>Ma formation m'a permis de maîtriser l'ensemble de la chaîne de développement : du front-end interactif au back-end robuste,
+                en passant par la gestion de projet Agile.</p>
+                    <blockquote class="philosophy">"Je ne cherche pas un stage, je cherche un terrain d'expression."</blockquote>
+                </div>
+                <div class="about-image">
+                    <img src="../portfolioII/Files/Moii.jpg" alt="Amir Boumazouzi" onerror="this.src='../C:/Users/Boumazouzi/Desktop/portfolioII/Moii.jpg'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION STACK POLYVALENTE (dev + cyber + marketing + gestion) -->
+    <section id="stack">
+        <div class="container">
+            <h2 class="section-title">Expertises <span>& Polyvalence</span></h2>
+            <p class="stack-subtitle">Développeur Full-Stack, mais pas que... Un couteau suisse digital.</p>
+            <div class="polyvalent-grid">
+                <div class="stack-domain">
+                    <div class="domain-header"><i class="fas fa-code"></i><h3>Développement</h3></div>
+                    <div class="tech-items">
+                        <span class="tech-item"><strong>Python</strong> (Flask/Django)</span>
+                        <span class="tech-item"><strong>JavaScript</strong> (ES6+)</span>
+                        <span class="tech-item"><strong>PHP</strong> (Natif)</span>
+                        <span class="tech-item">HTML/CSS</span>
+                        <span class="tech-item">C#</span>
+                        <span class="tech-item">React (appris)</span>
+                        <span class="tech-item">Node.js (notions)</span>
+                    </div>
+                </div>
+                <div class="stack-domain">
+                    <div class="domain-header"><i class="fas fa-shield-halved"></i><h3>Cyber & Sécurité</h3></div>
+                    <div class="tech-items">
+                        <span class="tech-item cyber-tag"><strong>Kali Linux</strong> (pentest)</span>
+                        <span class="tech-item cyber-tag">Outils de sécurité</span>
+                        <span class="tech-item cyber-tag">L'osint</span>
+                        <span class="tech-item cyber-tag">Kill Chain & Phising </span>
+                        <span class="tech-item">Analyse de vulnérabilités</span>
+                    </div>
+                </div>
+                <div class="stack-domain">
+                    <div class="domain-header"><i class="fas fa-chart-line"></i><h3>Réseaux & Cloud></div>
+                    <div class="tech-items">
+                        <span class="tech-item">Cisco Packet tracer </span>
+                        <span class="tech-item">Virtualisation VM</span>
+                        <span class="tech-item"></span>
+                        <span class="tech-item">Estimation & Budget</span>
+                    </div>
+                </div>
+                <div class="stack-domain">
+                    <div class="domain-header"><i class="fas fa-tasks"></i><h3>Gestion & Méthodes</h3></div>
+                    <div class="tech-items">
+                        <span class="tech-item"><strong>Scrum</strong> / Agile</span>
+                        <span class="tech-item">Git / GitHub</span>
+                        <span class="tech-item">Gestion de projet</span>
+                        <span class="tech-item">Jira / Trello</span>
+                        <span class="tech-item">Figma / Canva</span>
+                        <span class="tech-item">Docker (bases)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="vision">
+        <div class="container">
+            <div class="vision-container">
+                <div class="vision-text">
+                    <div class="vision-badge"><i class="fas fa-bolt"></i> Vision & Valeurs</div>
+                    <h2>Un développeur qui <span>pense solution</span></h2>
+                    <p>Mon parcours d'entrepreneur m'a appris à prioriser, à livrer vite et à communiquer. Je ne suis pas juste un exécutant : je suis un partenaire technique.</p>
+                    <div class="vision-grid">
+                        <div class="vision-card">
+                            <i class="fas fa-rocket"></i>
+                            <h4>Agilité terrain</h4>
+                            <p>Scrum, sprints, daily : je vis ces méthodes au quotidien dans mes projets perso.</p>
+                        </div>
+                        <div class="vision-card">
+                            <i class="fas fa-handshake"></i>
+                            <h4>Vision 360°</h4>
+                            <p>Je comprends les enjeux business, marketing et techniques.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="vision-cta">
+                    <h3>Prêt pour le prochain défi</h3>
+                    <div class="availability"><i class="fas fa-calendar-check" style="color:var(--electric)"></i> Disponible stage (min. 2 mois) puis alternance</div>
+                    <a href="../portfolioII/Files/CV-Sup-de-Vinci--AMIR-BOUMAZOUZI.pdf" class="btn-primary" style="width:100%; justify-content:center;"><i class="fas fa-download"></i> Télécharger CV complet</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Réalisations <span>concrètes</span></h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image"><img src="../portfolioII/img/IMG_0186.jpeg" alt="Amire Scents"></div>
+                    <div class="project-info">
+                        <h3>Amiré Scents</h3>
+                        <p>Marque de parfums : site e-commerce full custom, gestion de stock, stratégie marketing.</p>
+                        <div class="project-tags"><span class="project-tag">HTML/CSS</span><span class="project-tag">JS</span><span class="project-tag">PHP</span></div>
+                        <a href="#" class="project-link">Découvrir </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image"><img src="../portfolioII/img/ia.jpg" alt="Ami Auto Prestige"></div>
+                    <div class="project-info">
+                        <h3>Ami Auto Prestige</h3>
+                        <p>Concession en ligne : plateforme d'achat/vente, recherche personnalisée, backoffice.</p>
+                        <div class="project-tags"><span class="project-tag">PHP/JSON</span><span class="project-tag">JS</span><span class="project-tag">SQL</span></div>
+                        <a href="#" class="project-link">Découvrir </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image"><img src="../portfolioII/img/res.jpg" alt="Sup 2 Voyage"></div>
+                    <div class="project-info">
+                        <h3>Sup 2 Voyage</h3>
+                        <p>Agence de voyage fictive (projet d'école) - design responsive et animations.</p>
+                        <div class="project-tags"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JS</span></div>
+                        <a href="#" class="project-link">Découvrir </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800" alt="StockMaster"></div>
+                    <div class="project-info">
+                        <h3>StockMaster</h3>
+                        <p>App de gestion de stock (en cours) - React/Node/MongoDB.</p>
+                        <div class="project-tags"><span class="project-tag">React</span><span class="project-tag">Node.js</span><span class="project-tag">MongoDB</span></div>
+                        <a href="#" class="project-link">Bientôt dispo </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800" alt="Dashboard"></div>
+                    <div class="project-info">
+                        <h3>Analytics Dashboard</h3>
+                        <p>Dashboard de ventes pour Auto Prestige (Python/Flask).</p>
+                        <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Flask</span><span class="project-tag">Chart.js</span></div>
+                        <a href="#" class="project-link">En développement </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800" alt="Cyber Lab"></div>
+                    <div class="project-info">
+                        <h3>CyberLab</h3>
+                        <p>Environnement de test de vulnérabilités sous Kali Linux.</p>
+                        <div class="project-tags"><span class="project-tag">Kali</span><span class="project-tag">Metasploit</span><span class="project-tag">Wireshark</span></div>
+                        <a href="#" class="project-link"> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Construisons <span>ensemble</span></h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card"><i class="fas fa-envelope"></i><div><h4>Email</h4><p>amirboumazouzi@yahoo.com</p></div></div>
+                    <div class="contact-card"><i class="fas fa-phone-alt"></i><div><h4>Téléphone</h4><p>+33 6 33 72 37 63</p></div></div>
+                    <div class="contact-card"><i class="fas fa-map-marker-alt"></i><div><h4>Localisation</h4><p>Yvelines, France</p></div></div>
+                    <div class="contact-card"><i class="fas fa-file-pdf"></i><div><h4>CV</h4><p><a href="#" style="color:var(--electric)">Télécharger (PDF)</a></p></div></div>
+                </div>
+         
+        </div>
+    </section>
+
+    <!-- FOOTER DE MALADE -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">Amir <span>Bmz</span></div>
+                    <p>Développeur, entrepreneur, cyber-enthousiaste. Je transforme les idées en solutions robustes.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/amir-boumazouzi-541378388/"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/Miroo78"><i class="fab fa-github"></i></a>
+                     
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Explorer</h4>
+                    <ul class="footer-links">
+                        <li><a href="#hero">Accueil</a></li>
+                        <li><a href="#about">Profil</a></li>
+                        <li><a href="#stack">Expertises</a></li>
+                        <li><a href="#projects">Projets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Ressources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">CV PDF</a></li>
+                        <li><a href="#">Mentions légales</a></li>
+                        <li><a href="#">Crédits</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Disponibilité</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-check-circle" style="color:var(--electric)"></i> Stage 2 mois min.</li>
+                        <li><i class="fas fa-check-circle" style="color:var(--electric)"></i> Alternance 2025</li>
+                        <li><i class="fas fa-clock" style="color:var(--silver)"></i> Réponse sous 24h</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Amir Boumazouzi. Conçu avec <i class="fas fa-heart" style="color:var(--electric)"></i> pour coder et entreprendre.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
